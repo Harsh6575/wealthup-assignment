@@ -3,6 +3,10 @@ import { Errors } from "../utils/appError.js";
 
 export const uploadFile = async (req, res) => {
   try {
+    if (!req.file) {
+      return Errors.BadRequest("No file uploaded", res);
+    }
+
     const result = await uploadService.uploadFile(req);
 
     return res.status(200).json({

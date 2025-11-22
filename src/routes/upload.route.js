@@ -1,8 +1,10 @@
 import { Router } from "express";
 import { uploadFile } from "../controllers/upload.controller.js";
 
+import { upload } from "../config/multer.config.js";
+
 const router = Router();
 
-router.post("/", uploadFile);
+router.post("/", upload.single("file"), uploadFile);
 
 export default router;

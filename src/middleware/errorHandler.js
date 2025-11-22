@@ -1,7 +1,29 @@
 import { AppError } from "../utils/appError.js";
 import logger from "../utils/logger.js";
 
+import multer from "multer";
+
 export const errorHandler = (err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    return res.status(400).json({
+      success: false,
+      error: {
+        code: "MULTER_ERROR",
+        message: err.message,
+      },
+    });
+  }
+
+  if (err.message === "Only .txt allowed") {
+    return res.status(400).json({
+      success: false,
+      error: {
+        code: "INVALID_FILE_TYPE",
+        message: "Only .txt files are allowed",
+      },
+    });
+  }
+
   let statusCode = 500;
   let code = "INTERNAL_ERROR";
   let message = "An unexpected error occurred.";

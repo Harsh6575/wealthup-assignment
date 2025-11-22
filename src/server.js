@@ -1,6 +1,9 @@
 import app from "./app.js";
 import logger from "./utils/logger.js";
 
+import dotenv from "dotenv";
+dotenv.config();
+
 const PORT = process.env.PORT || 3000;
 
 const server = app.listen(PORT, () => {

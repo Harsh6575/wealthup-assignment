@@ -9,11 +9,11 @@ This repository conatins code for [my](https://harsh-vansjaliya.vercel.app/) ass
 - Accepts .txt files only
 - Validates file type + size
 - Processes multipart form-data using Multer
-- Stores the uploaded file securely in AWS S3
-- Returns public file URL
+- Stores the uploaded file securely in **AWS S3**
+- Returns **public file URL**
 
 ### Deployment
 
-- Backend deployed on AWS EC2 (Ubuntu)
-- Reverse-proxied using NGINX
-- Application process managed with PM2
+- Backend deployed on **AWS EC2 (Ubuntu)**
+- Reverse-proxied using **NGINX**
+- Application process managed with **PM2**

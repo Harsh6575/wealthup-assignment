@@ -6,6 +6,8 @@ import morganLogger from "./middleware/morganLogger.js";
 import { notFoundHandler } from "./middleware/notFoundHandler.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 
+import uploadRouter from "./routes/upload.route.js";
+
 const app = express();
 
 app.use(helmet());
@@ -19,10 +21,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Wealth Up Assignment API!");
 });
 
-app.post("/upload", (req, res) => {
-  // Placeholder for file upload handling logic
-  res.send("File upload endpoint");
-});
+app.use("/api/upload", uploadRouter);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
